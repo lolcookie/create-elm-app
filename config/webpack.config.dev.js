@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const getClientEnvironment = require('./env');
-const paths = require('../config/paths');
+const path = require('path')
+const autoprefixer = require('autoprefixer')
+const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin')
+const DefinePlugin = require('webpack/lib/DefinePlugin')
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin')
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const getClientEnvironment = require('./env')
+const paths = require('../config/paths')
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
-const publicPath = '/';
+const publicPath = '/'
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
-const publicUrl = '';
+const publicUrl = ''
 // Get environment variables to inject into our app.
-const env = getClientEnvironment(publicUrl);
+const env = getClientEnvironment(publicUrl)
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -112,7 +112,7 @@ module.exports = {
         exclude: [/elm-stuff/, /node_modules/],
         use: [
           {
-            loader: require.resolve('elm-hot-loader')
+            loader: require.resolve('elm-hot-webpack-loader')
           },
           // string-replace-loader works as InterpolateHtmlPlugin for Elm,
           // it replaces all of the %PUBLIC_URL% with the URL of your
@@ -218,4 +218,4 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   }
-};
+}
