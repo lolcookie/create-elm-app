@@ -13,9 +13,9 @@ type alias Model =
     {}
 
 
-init : ( Model, Cmd Msg )
+init : Model
 init =
-    ( {}, Cmd.none )
+    {}
 
 
 
@@ -26,9 +26,9 @@ type Msg
     = NoOp
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> Model
 update msg model =
-    ( model, Cmd.none )
+    model
 
 
 

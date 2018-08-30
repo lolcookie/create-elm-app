@@ -111,13 +111,7 @@ module.exports = {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
         use: [
-          {
-            loader: require.resolve('elm-hot-webpack-loader')
-          },
-          // string-replace-loader works as InterpolateHtmlPlugin for Elm,
-          // it replaces all of the %PUBLIC_URL% with the URL of your
-          // application, so you could serve static assets outside of the
-          // module system.
+          { loader: 'elm-hot-webpack-loader' },
           {
             loader: require.resolve('string-replace-loader'),
             query: {
@@ -127,14 +121,10 @@ module.exports = {
             }
           },
           {
-            loader: require.resolve('elm-webpack-loader'),
+            loader: 'elm-webpack-loader',
             options: {
-              verbose: true,
-              // If ELM_DEBUGGER was set to "false", disable it. Otherwise
-              // for invalid values, "true" and as a default, enable it
-              debug: process.env.ELM_DEBUGGER === 'false' ? false : true,
-              pathToElm: paths.elm,
-              forceWatch: true
+              cwd: __dirname,
+              debug: false
             }
           }
         ]
